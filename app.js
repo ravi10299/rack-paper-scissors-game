@@ -1,80 +1,47 @@
-let userScore = 0;
-let compScore = 0;
+ const choices = document.querySelectorAll(".choice");
+    const msg = document.getElementById("msg");
+    const userScoreElem = document.getElementById("user-score");
+    const compScoreElem = document.getElementById("computer-score");
 
-const choice = document.querySelectorAll(".choice");
+    let userScore = 0;
+    let compScore = 0;
 
-const  msg= document.querySelector("#msg");
+    const getComputerChoice = () => {
+      const options = ["rock", "paper", "scissors"];
+      return options[Math.floor(Math.random() * options.length)];
+    };
 
+    const playGame = (userChoice) => {
+      const compChoice = getComputerChoice();
 
-let userScoremsg = document.querySelector("#user-score");
-let comScoremsg = document.querySelector("#computer-score");
-
-
-
-const genComChoice = () => {
-    const option = ["rack", "paper,", "scissors"]
-    const randIdx = Math.floor(Math.random() * 3);
-    return option[randIdx];
-
-}
-
-const userWins  = (userWin,UserchoiceId,comChoice)=>{
-    if(userWin){
+      if (userChoice === compChoice) {
+        msg.textContent = `It's a tie! Both chose ${userChoice}`;
+        msg.style.color = "#333";
+      } else if (
+        (userChoice === "rock" && compChoice === "scissors") ||
+        (userChoice === "paper" && compChoice === "rock") ||
+        (userChoice === "scissors" && compChoice === "paper")
+      ) {
         userScore++;
-        userScoremsg.innerText = userScore;
-        console.log("user wining");
-        msg.innerText = `user win the game ${UserchoiceId} beats ${comChoice}`;
-        msg.style.backgroundColor = "green";
+        userScoreElem.textContent = userScore;
+        msg.textContent = `You win! 🎉 ${userChoice} beats ${compChoice}`;
+        msg.style.color = "green";
+      } else {
+        compScore++;
+        compScoreElem.textContent = compScore;
+        msg.textContent = `You lose! 😢 ${compChoice} beats ${userChoice}`;
+        msg.style.color = "red";
+      }
 
-   }else{
-    console.log("user loss");
-    compScore++;
-    comScoremsg.innerText = compScore;
-    msg.innerText = `compuer win the game ${UserchoiceId} beats ${comChoice}`;
-    msg.style.backgroundColor = "red";
-   }
-}
-const drawGame = (UserchoiceId,comChoice) => {
-    console.log("draw thw game");
-    msg.innerText = `draw the game try again! ${UserchoiceId} = ${comChoice}`;
-    msg.style.backgroundColor = "#081b31";
+      // Animate message
+      msg.parentElement.style.animation = "fadeInUp 0.6s ease";
+      setTimeout(() => {
+        msg.parentElement.style.animation = "";
+      }, 600);
+    };
 
-}
-const playGame = (UserchoiceId) => {
-    console.log("user choice", UserchoiceId);
-
-    //Generate the computer choice......
-
-    const comChoice = genComChoice();
-    console.log("computer choice", comChoice);
-
-
-    if (UserchoiceId === comChoice) {
-        //draw the game
-        drawGame(UserchoiceId,comChoice);
-    }else{
-        let userWin = true;
-        if(UserchoiceId === "rack"){
-            userWin = comChoice === "paper" ? false :true;
-        }else if(UserchoiceId === "paper"){
-            userWin = comChoice === "scissors" ? false :true;
-        }else{
-            userWin = comChoice === "rack" ? false :true;
-        }
-
-
-        userWins(userWin,UserchoiceId,comChoice);
-    }
-    
-};
-
-
-choice.forEach((choice) => {
-    // console.log(choice);
-    choice.addEventListener("click", () => {
-        const UserchoiceId = choice.getAttribute("id");
-        // console.log("click the action" ,UserchoiceId);
-        playGame(UserchoiceId);
-
-    })
-})
+    choices.forEach(choice => {
+      choice.addEventListener("click", () => {
+        playGame(choice.id);
+      });
+    });
