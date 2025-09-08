@@ -1,20 +1,42 @@
-# rack-paper-scissors-game
+<!-- 🌟 Rock Paper Scissors Game 🌟 -->
 
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Rock%20Paper%20Scissors&fontSize=50&fontAlignY=35&animation=twinkling&fontColor=fff" />
+</p>
 
-The provided code implements a basic version of the rock-paper-scissors game using HTML, CSS, and JavaScript. Here's a summary of its functionality:
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=26&pause=1000&center=true&vCenter=true&width=600&lines=🎮+Rock+Paper+Scissors+Game;✨+Built+with+HTML%2C+CSS%2C+JavaScript;🔥+Play+Directly+in+Your+Browser!" />
+</p>
 
-1. **HTML Structure**: The HTML file contains a title, a header displaying "Rock Paper Scissors," and three buttons labeled "Rock," "Paper," and "Scissors" to represent the player's choices.
+---
 
-2. **CSS Styling**: The CSS code provides some basic styling to the webpage, including font selection and alignment.
+## 📌 About the Project  
+This is a **fun and interactive Rock-Paper-Scissors game** built using **HTML, CSS, and JavaScript**.  
+It allows users to play against the computer in real-time with a simple and responsive UI.
 
-3. **JavaScript Logic**:
-   - When a player clicks one of the buttons, it triggers the `play()` function in JavaScript.
-   - Inside the `play()` function, a random choice (rock, paper, or scissors) is generated for the computer.
-   - The player's choice and the computer's choice are then compared to determine the result of the game.
-   - Depending on the outcome (win, lose, or tie), a message displaying the result along with the computer's choice is updated on the webpage.
+✨ Features:
+- 🎨 Colorful & clean UI with hover animations  
+- ⚡ Instant results for each round  
+- 🔄 Replay as many times as you like  
+- 🧠 Computer makes random choices  
 
-4. **Result Display**: The result of each round (win, lose, or tie) is displayed below the buttons, informing the player about the outcome of their choice and the computer's choice.
+---
 
-5. **Gameplay**: The game allows the player to repeatedly click on the buttons to make choices and see the results of each round.
+## 🚀 Tech Stack
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js" />
+</p>
 
-Overall, this code provides a simple and interactive implementation of the rock-paper-scissors game that can be played directly in a web browser.
+---
+
+## 📷 Demo Preview  
+<p align="center">
+  <img src="https://media.giphy.com/media/26tPplGWjN0xLybiU/giphy.gif" width="500" alt="demo animation"/>
+</p>
+
+---
+
+## 🛠️ How to Run Locally
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/<YOUR_GITHUB_USERNAME>/rock-paper-scissors.git
